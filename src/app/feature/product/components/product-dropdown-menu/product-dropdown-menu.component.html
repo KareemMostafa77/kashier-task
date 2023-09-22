@@ -1,0 +1,15 @@
+<div>
+  <button type="button" class="btn btn-sm bg-white border border-gray w-100 text-left text-muted d-flex justify-content-between align-items-center" (click)="toggelActiveMenu()"><span>Select Or Add New Product</span> <i class="fas fa-chevron-down"></i> </button>
+</div>
+<div class="w-100 bg-white p-3 mt-2 dropdown-menu-content" *ngIf="displayActiveMenu">
+  <div class="input-group">
+    <input type="text" class="form-control bg-white" placeholder="Search Products" [(ngModel)]="filterInput" (input)="getProductsList()">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white"> <i class="fas fa-magnifying-glass"></i> </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-light w-100 text-left my-2" routerLink="/create-product" (click)="toggelActiveMenu()"> <i class="fas fa-plus"></i> Add New Product</button>
+  <ul class="list-group">
+    <li *ngFor="let product of products" class="list-group-item" [routerLink]="['/update-product', product.id]" (click)="toggelActiveMenu()">{{product.productName}}</li>
+  </ul>
+</div>

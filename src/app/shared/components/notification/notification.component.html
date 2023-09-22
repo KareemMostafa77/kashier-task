@@ -1,0 +1,7 @@
+<div class="w-100 bg-white p-3 mt-2 notification_box" *ngIf="displayNotification">
+  <div class="d-flex align-items-start">
+    <span> <i class="fas fa-circle-check text-success mx-2"></i> </span>
+    <span> {{notificationString}} </span>
+    <button class="btn bg-transparent" (click)="clearNotification()"> <i class="fas fa-xmark ml-5"></i> </button>
+  </div>
+</div>
